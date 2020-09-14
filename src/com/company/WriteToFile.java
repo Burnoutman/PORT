@@ -4,7 +4,7 @@ package com.company;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class WriteToFile  {
+public class WriteToFile {
     private final String FILENAME = "All.csv";
     private String port;
 
@@ -20,11 +20,11 @@ public class WriteToFile  {
         try {
             FileWriter writer = new FileWriter(FILENAME, true);
             writer.write(getPort());
-            writer.append(";");
+            if (!(getPort().equals("\r\n"))) { //убирает ; с пустой строки.
+                writer.append(";");
+            }
             writer.flush();
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 

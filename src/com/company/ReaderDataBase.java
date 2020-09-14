@@ -32,6 +32,7 @@ public class ReaderDataBase {
                 } else {
                     list.add("Нет");
                 }
+                list.add("\r\n");
 
             }
             resultSet.close();
