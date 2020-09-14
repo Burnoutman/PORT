@@ -9,10 +9,10 @@ public class Main {
         ReaderDataBase aw = new ReaderDataBase();
 
 
-        aw.readerDataBase();
-        sr.Insert();
-        mr.Insert();
         tS.Insert();
+        mr.Insert();
+        sr.Insert();
+        aw.readerDataBase();
     }
 
 }
