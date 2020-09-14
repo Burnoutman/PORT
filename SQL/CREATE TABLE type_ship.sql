@@ -1,0 +1,7 @@
+use port;
+
+CREATE TABLE type_ship(
+id INT NOT NULL AUTO_INCREMENT,
+type_ship VARCHAR (255) NOT NULL,
+PRIMARY KEY (id)
+)
