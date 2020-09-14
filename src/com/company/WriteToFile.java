@@ -9,19 +9,21 @@ public class WriteToFile {
     private String port;
 
     public String getPort() {
+
         return port;
     }
 
     public void setPort(String port) {
+
         this.port = port;
     }
 
-    public void writeToFile() throws Exception {
+    public void writeToFile(){
         try {
             FileWriter writer = new FileWriter(FILENAME, true);
             writer.write(getPort());
-            if (!(getPort().equals("\r\n"))) { //убирает ; с пустой строки.
-                writer.append(";");
+            if (!(getPort().equals("\r\n"))) { //убирает ";" с пустой строки.
+                writer.append(";\r\n");
             }
             writer.flush();
         } catch (IOException e) {

@@ -11,7 +11,7 @@ public class ReaderDataBase {
             "manufacturer mf ON sh.manufacturer_id=mf.id INNER JOIN type_ship ts ON sh.type_ship_id=ts.id;";
 
 
-    public void readerDataBase() {
+    public void readerDataBase()  {
         WriteToFile wtf = new WriteToFile();
         Connection connection = DbConnector.getConnection();
         ArrayList<String> list = new ArrayList<>();
@@ -19,18 +19,18 @@ public class ReaderDataBase {
                 PreparedStatement statement = connection.prepareStatement(SELECT);
                 ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                list.add(resultSet.getString("type_ship"));
-                list.add(resultSet.getString("title_ship"));
-                list.add(resultSet.getString("title_manufacturer"));
-                list.add(resultSet.getString("country"));
-                list.add(resultSet.getString("displacement"));
-                list.add(resultSet.getString("launch_date"));
-                list.add(resultSet.getString("capitan"));
-                list.add(resultSet.getString("max_speed"));
+                list.add("Тип корабля: "+resultSet.getString("type_ship"));
+                list.add("Название корабля: "+resultSet.getString("title_ship"));
+                list.add("Производитель: "+resultSet.getString("title_manufacturer"));
+                list.add("Страна: "+resultSet.getString("country"));
+                list.add("Водоизмещение: "+resultSet.getString("displacement"));
+                list.add("Дата спуска на воду: "+resultSet.getString("launch_date"));
+                list.add("Капитан: "+resultSet.getString("capitan"));
+                list.add("Максимальная скорость: "+resultSet.getString("max_speed"));
                 if (resultSet.getString("military").equals("1")) {
-                    list.add("Да");
+                    list.add("Военный (да,нет): Да");
                 } else {
-                    list.add("Нет");
+                    list.add("Военный (да,нет): Нет");
                 }
                 list.add("\r\n");
 
