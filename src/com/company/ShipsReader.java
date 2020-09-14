@@ -7,7 +7,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 
 public class ShipsReader {
-    private final String FILENAME = "D:\\ships.csv";
+    private final String FILENAME = "ships.csv";
     private final String INSERT = "INSERT INTO ships (id,title_ship,displacement,launch_date,capitan,type_ship_id,manufacturer_id,max_speed,military) VALUE(?,?,?,?,?,?,?,?,?)";
 
     public void Insert() throws Exception {

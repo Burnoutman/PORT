@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class WriteToFile  {
-    private final String FILENAME = "D:\\All.csv";
+    private final String FILENAME = "All.csv";
     private String type_ship;
     private String title_ship;
     private String title_manufacturer;

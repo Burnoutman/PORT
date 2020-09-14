@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 
 
 public class ManufacturerReader {
-    private final String FILENAME = "D:\\manufacturer.csv";
+    private final String FILENAME = "manufacturer.csv";
     private final String INSERT = "INSERT INTO manufacturer (id,title_manufacturer,country) VALUE(?,?,?)";
 
     public void Insert() throws Exception {

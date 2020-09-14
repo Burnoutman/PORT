@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 
 public class TypeShipReader {
 
-    private final String FILENAME = "D:\\type_ship.csv";
+    private final String FILENAME = "type_ship.csv";
     private final String INSERT = "INSERT INTO type_ship (id,type_ship) VALUE(?,?)";
 
 
