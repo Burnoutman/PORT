@@ -32,6 +32,7 @@ public class ReaderDataBase {
                     }
 
             }
+            resultSet.close();
             wtf.setType_ship(list.get(0));
             wtf.setTitle_ship(list.get(1));
             wtf.setTitle_manufacturer(list.get(2));
