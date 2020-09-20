@@ -1,4 +1,5 @@
 package com.company;
+import com.company.entity.Manufacturer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,23 +8,27 @@ import java.sql.PreparedStatement;
 
 
 public class ManufacturerReader {
-    private final String FILENAME = "manufacturer.csv";
-    private final String INSERT = "INSERT INTO manufacturer (id,title_manufacturer,country) VALUE(?,?,?)";
 
     public void Insert() throws Exception {
-        BufferedReader reader = new BufferedReader(new FileReader(FILENAME));
+
+        Manufacturer manufacturer =new Manufacturer();
+
+        BufferedReader reader = new BufferedReader(new FileReader(manufacturer.getFILENAME()));
         Connection connection = DbConnector.getConnection();
         String line;
-
 
         while ((line = reader.readLine()) != null) {
 
             try {
-                PreparedStatement pr = connection.prepareStatement(INSERT);
+                PreparedStatement pr = connection.prepareStatement(manufacturer.getINSERT());
                 String[] str = line.split(";");
-                pr.setInt(1, Integer.parseInt(str[0]));
-                pr.setString(2, str[1]);
-                pr.setString(3, str[2]);
+                manufacturer.setId(Integer.parseInt(str[0]));
+                manufacturer.setTitleManufacturer(str[1]);
+                manufacturer.setCountry(str[2]);
+
+                pr.setInt(1, manufacturer.getId());
+                pr.setString(2, manufacturer.getTitleManufacturer());
+                pr.setString(3, manufacturer.getCountry());
                 pr.executeUpdate();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
